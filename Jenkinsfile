@@ -2,7 +2,7 @@ node{
 
     stage('SCM Checkout')
     {
-        git credentialsId: '4cc785e9-441d-4818-a248-2bfb2148004d', url: 'https://github.com/VardhanNS/phpmysql-app.git'
+        git credentialsId: '66759160', url: 'https://github.com/paulovitoor85/phpmysql-app.git'
     }
     
     stage('Run Docker Compose File')
@@ -14,8 +14,8 @@ node{
     {
         withCredentials([string(credentialsId: 'DockerHubPassword', variable: 'DHPWD')]) 
         {
-            sh "docker login -u vardhanns -p ${DHPWD}"
+            sh "docker login -u paulovitoor85 -p ${DHPWD}"
         }
-        sh 'docker push vardhanns/phpmysql_app'
+        sh 'docker push paulovitoor85/phpmysql_app'
     }
 }
